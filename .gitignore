@@ -9,3 +9,4 @@ lib/
 googletest/
 Project
 CMakeCache.txt
+dconfig

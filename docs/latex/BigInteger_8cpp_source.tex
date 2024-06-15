@@ -1,0 +1,342 @@
+\doxysection{Big\+Integer.\+cpp}
+\hypertarget{BigInteger_8cpp_source}{}\label{BigInteger_8cpp_source}\index{BigNumbers/BigInteger.cpp@{BigNumbers/BigInteger.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}BigInteger.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ =\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&;}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00009\ \mbox{\hyperlink{classBigInteger_a67a108dbe651911a21b3fc4310a505dd}{BigInteger::BigInteger}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\&\ other)\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordflow}{if}\ (other\ <\ 0)\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::negative;}
+\DoxyCodeLine{00012\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (other\ ==\ 0)\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::zero;}
+\DoxyCodeLine{00014\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::positive;}
+\DoxyCodeLine{00016\ \ \ \ \ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ copy\ =\ std::abs(other);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{while}\ (copy\ !=\ 0)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.push\_back(copy\ \%\ kSystem);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ copy\ /=\ kSystem;}
+\DoxyCodeLine{00021\ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \mbox{\hyperlink{classBigInteger_a67a108dbe651911a21b3fc4310a505dd}{BigInteger::BigInteger}}(\textcolor{keyword}{const}\ std::string\ other)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (other.size()\ ==\ 1\ \&\&\ other[0]\ ==\ \textcolor{charliteral}{'0'})\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{BigInteger::sign}}\ =\ Sign::zero;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (other.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{BigInteger::sign}}\ =\ Sign::positive;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ ind\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (other[0]\ ==\ \textcolor{charliteral}{'-\/'})\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{BigInteger::sign}}\ =\ Sign::negative;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ ++ind;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{while}\ (other[ind]\ ==\ \textcolor{charliteral}{'0'}\ \&\&\ ind\ <\ other.size())\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ ++ind;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (ind\ ==\ other.size())\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{BigInteger::sign}}\ =\ Sign::zero;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \ \ \ \ std::string\ current;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ other.size()\ -\/\ 1;\ i\ >=\ ind;\ -\/-\/i)\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ current\ =\ other[i]\ +\ current;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(current.size()\ ==\ 9)\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.push\_back(stoi(current));}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}(current.size()\ !=\ 0)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.push\_back(stoi(current));}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ \mbox{\hyperlink{classBigInteger_a25c0c2664be5543724dd21667dca9056}{BigInteger::operator-\/}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ result\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (result.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::positive)\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::negative;}
+\DoxyCodeLine{00070\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::negative)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::positive;}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00074\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ std::string\ \mbox{\hyperlink{classBigInteger_a486636afaaae308b598eca2df99971e0}{BigInteger::toString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ std::string\ output\_string;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size();\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ (kDigit\_size\ -\/\ std::to\_string(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ -\/\ 1]).size())\ \&\&\ i\ !=\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size();\ j++)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ output\_string\ +=\ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ std::to\_string(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ -\/\ 1]).size();\ j++)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ output\_string.push\_back(std::to\_string(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ -\/\ 1])[j]);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::negative)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ output\_string\ =\ \textcolor{stringliteral}{"{}-\/"{}}\ +\ output\_string;}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ output\_string;}
+\DoxyCodeLine{00097\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{bool}\ operator==(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (first.signum()\ !=\ second.signum()\ ||\ first.digits().size()\ !=\ second.digits().size())\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ first.digits().size();\ i++)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (first.digits()[i]\ !=\ second.digits()[i])\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{bool}\ operator<(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (first\ ==\ second)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordflow}{if}\ (first.signum()\ >\ second.signum())\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (first.signum()\ <\ second.signum())\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00131\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (first.signum()\ ==\ Sign::negative)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/second\ <\ -\/first;}
+\DoxyCodeLine{00133\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (first.digits().size()\ >\ second.digits().size())\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00135\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (first.digits().size()\ <\ second.digits().size())\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00137\ \ \ \ \ \}\ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ first.digits().size();\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (first.digits()[i\ -\/\ 1]\ >\ second.digits()[i\ -\/\ 1])\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (first.digits()[i\ -\/\ 1]\ <\ second.digits()[i\ -\/\ 1])\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00145\ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{bool}\ operator!=(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ !(first\ ==\ second);}
+\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{bool}\ operator<=(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ !(second\ <\ first);}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{bool}\ operator>(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{return}\ second\ <\ first;}
+\DoxyCodeLine{00175\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{bool}\ operator>=(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ !(first\ <\ second);}
+\DoxyCodeLine{00185\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00191\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ BigInteger::abs()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ copy\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (copy.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::negative)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ copy.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::positive;}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{return}\ copy;}
+\DoxyCodeLine{00197\ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{void}\ BigInteger::remove\_zeros()\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.empty()\ \&\&\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.back()\ ==\ 0)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.pop\_back();}
+\DoxyCodeLine{00205\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.empty())\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::zero;}
+\DoxyCodeLine{00207\ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00213\ \textcolor{keywordtype}{void}\ BigInteger::shift()\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.empty())\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.push\_back(0);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.push\_back(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size()\ -\/\ 1]);}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size()\ -\/\ 2;\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i]\ =\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ -\/\ 1];}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[0]\ =\ 0;}
+\DoxyCodeLine{00223\ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00230\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_a34dd6d316e776ac39f515390abd9d5fa}{BigInteger::operator+=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other)\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ other;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00234\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00236\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::positive\ \&\&\ other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::positive)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ memory\ =\ 0;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ std::max(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size(),\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size())\ ||\ memory\ !=\ 0;\ i++)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size())\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.push\_back(0);}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ second\ =\ 0;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size())\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ second\ =\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i];}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i]\ +=\ memory\ +\ second;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ memory\ =\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i]\ >=\ kSystem;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (memory\ !=\ 0)\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i]\ -\/=\ kSystem;}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00253\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::negative\ \&\&\ other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::negative)\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ -\/(abs()\ +=\ other.abs());}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00256\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::positive\ \&\&\ other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::negative)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ -\/=\ -\/other;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ *\textcolor{keyword}{this}\ =\ -\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{00261\ \ \ \ \ *\textcolor{keyword}{this}\ =\ -\/(*\textcolor{keyword}{this}\ -\/=\ other);}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00263\ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00270\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_a203b2f07f8ce3d1c540ef560dbd74682}{BigInteger::operator-\/=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other)\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ -\/other;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00274\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::positive\ \&\&\ other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::positive)\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ <\ other)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ copy\ =\ other;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ copy\ -\/=\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ -\/copy;}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*\textcolor{keyword}{this}\ ==\ other)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::zero;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ memory\ =\ 0;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size()\ ||\ memory\ !=\ 0;\ i++)\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ second\ =\ 0;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size())\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ second\ =\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i];}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i]\ -\/=\ memory\ +\ second;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ memory\ =\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i]\ <\ 0;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (memory\ !=\ 0)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i]\ +=\ kSystem;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ remove\_zeros();}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00301\ \ \ \ \ \}\ \textcolor{keywordflow}{if}\ (other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::negative)\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ +=\ -\/other;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ *\textcolor{keyword}{this}\ =\ -\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{00306\ \ \ \ \ *\textcolor{keyword}{this}\ +=\ other;}
+\DoxyCodeLine{00307\ \ \ \ \ *\textcolor{keyword}{this}\ =\ -\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00309\ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00316\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_aac54ae9ee280f39627dc787286c252ec}{BigInteger::operator*=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ product;}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero\ ||\ other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::zero;}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00321\ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}})\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ product.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::positive;}
+\DoxyCodeLine{00324\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ product.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::negative;}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ product.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.resize(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size()\ +\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size());}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size();\ i++)\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ memory\ =\ 0;}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size()\ ||\ memory\ !=\ 0;\ j++)\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ digit\ =\ 0;}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\ <\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size())\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ digit\ =\ other.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[j];}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ current\_product\ =\ product.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ +\ j]\ +\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\textcolor{keyword}{>}(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i])\ *\ digit\ +\ memory;}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ product.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ +\ j]\ =\ current\_product\ \%\ kSystem;}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ memory\ =\ current\_product\ /\ kSystem;}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00339\ \ \ \ \ \}}
+\DoxyCodeLine{00340\ \ \ \ \ product.remove\_zeros();}
+\DoxyCodeLine{00341\ \ \ \ \ *\textcolor{keyword}{this}\ =\ product;}
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00343\ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00350\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_a29791f82d6344c9bf6575fafdc4d950e}{BigInteger::operator/=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other)\ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordflow}{if}\ (other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}lol"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ exit(0);}
+\DoxyCodeLine{00354\ \ \ \ \ \};}
+\DoxyCodeLine{00355\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ quotient;}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ Sign::zero)\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00358\ \ \ \ \ \}}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ ==\ other.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}})\ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ quotient.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::positive;}
+\DoxyCodeLine{00361\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ quotient.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::negative;}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \ \ \ \ quotient.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.resize(\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size());}
+\DoxyCodeLine{00365\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ current;}
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size();\ i\ >\ 0;\ i-\/-\/)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ current.shift();}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ current.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[0]\ =\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ -\/\ 1];}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ current.remove\_zeros();}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[current.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}.size()\ -\/\ 1]\ !=\ 0)\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ current.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::positive;}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ current.\mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}}\ =\ Sign::zero;}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ incomplete\_quotient\ =\ 0;}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ left\ =\ 0;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ right\ =\ kSystem;}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (left\ <=\ right)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ median\ =\ (left\ +\ right)\ /\ 2;}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other.abs()\ *\ median\ <=\ current)\ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ incomplete\_quotient\ =\ median;}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ left\ =\ median\ +\ 1;}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ right\ =\ median\ -\/\ 1;}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ quotient.\mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}}[i\ -\/\ 1]\ =\ incomplete\_quotient;}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ current\ -\/=\ incomplete\_quotient\ *\ other.abs();}
+\DoxyCodeLine{00389\ \ \ \ \ \}}
+\DoxyCodeLine{00390\ \ \ \ \ quotient.remove\_zeros();}
+\DoxyCodeLine{00391\ \ \ \ \ *\textcolor{keyword}{this}\ =\ quotient;}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00393\ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00401\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ operator+(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ sum\ =\ first;}
+\DoxyCodeLine{00403\ \ \ \ \ sum\ +=\ second;}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{00405\ \}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00413\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ operator-\/(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ difference\ =\ first;}
+\DoxyCodeLine{00415\ \ \ \ \ difference\ -\/=\ second;}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordflow}{return}\ difference;}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00425\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ operator*(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ product\ =\ first;}
+\DoxyCodeLine{00427\ \ \ \ \ product\ *=\ second;}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{return}\ product;}
+\DoxyCodeLine{00429\ \}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00437\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ operator/(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ first,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ second)\ \{}
+\DoxyCodeLine{00438\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ quotient\ =\ first;}
+\DoxyCodeLine{00439\ \ \ \ \ quotient\ /=\ second;}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordflow}{return}\ quotient;}
+\DoxyCodeLine{00441\ \}}
+\DoxyCodeLine{00442\ }
+
+\end{DoxyCode}

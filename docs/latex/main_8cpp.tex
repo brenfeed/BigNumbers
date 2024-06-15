@@ -1,0 +1,94 @@
+\doxysection{main.\+cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{main.cpp@{main.cpp}}
+
+
+Главный файл для демонстрации использования \doxylink{classBigFloat}{Big\+Float} и \doxylink{classBigInteger}{Big\+Integer}.  
+
+
+{\ttfamily \#include "{}Big\+Numbers/\+Big\+Float.\+h"{}}\newline
+{\ttfamily \#include "{}Big\+Numbers/\+Big\+Float.\+cpp"{}}\newline
+{\ttfamily \#include "{}Big\+Numbers/\+Big\+Integer.\+h"{}}\newline
+{\ttfamily \#include "{}Big\+Numbers/\+Big\+Integer.\+cpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a9064c572b2b33295a5ca0950d4f8737e}{all}}(x)~x.\+begin(), x.\+end()
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для вывода \doxylink{classBigInteger}{Big\+Integer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{main_8cpp_a2a6fae04bdfc16bd06eeabd4c9761226}\label{main_8cpp_a2a6fae04bdfc16bd06eeabd4c9761226} 
+void {\bfseries show} (\mbox{\hyperlink{classBigInteger}{Big\+Integer}} a)
+\item 
+void \mbox{\hyperlink{main_8cpp_a5105e7cfddb19c06ac6d0d9a6b363764}{show}} (\mbox{\hyperlink{classBigFloat}{Big\+Float}} a, int x)
+\begin{DoxyCompactList}\small\item\em Вспомогательная функция для вывода \doxylink{classBigFloat}{Big\+Float} с заданной точностью. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigFloat}{Big\+Float}} \mbox{\hyperlink{main_8cpp_ad5028e8d062c94d097a3447ab49faef3}{calculate\+\_\+pi}} (int idx)
+\begin{DoxyCompactList}\small\item\em Вычисляет значение числа Пи с заданной точностью. \end{DoxyCompactList}\item 
+\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\begin{DoxyCompactList}\small\item\em Главная функция для демонстрации функциональности \doxylink{classBigFloat}{Big\+Float} и \doxylink{classBigInteger}{Big\+Integer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Главный файл для демонстрации использования \doxylink{classBigFloat}{Big\+Float} и \doxylink{classBigInteger}{Big\+Integer}. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{main_8cpp_a9064c572b2b33295a5ca0950d4f8737e}\label{main_8cpp_a9064c572b2b33295a5ca0950d4f8737e} 
+\index{main.cpp@{main.cpp}!all@{all}}
+\index{all@{all}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{all}{all}}
+{\footnotesize\ttfamily \#define all(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~x.\+begin(), x.\+end()}
+
+
+
+Вспомогательная функция для вывода \doxylink{classBigInteger}{Big\+Integer}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxylink{classBigInteger}{Big\+Integer} для вывода. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_ad5028e8d062c94d097a3447ab49faef3}\label{main_8cpp_ad5028e8d062c94d097a3447ab49faef3} 
+\index{main.cpp@{main.cpp}!calculate\_pi@{calculate\_pi}}
+\index{calculate\_pi@{calculate\_pi}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{calculate\_pi()}{calculate\_pi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigFloat}{Big\+Float}} calculate\+\_\+pi (\begin{DoxyParamCaption}\item[{int}]{idx }\end{DoxyParamCaption})}
+
+
+
+Вычисляет значение числа Пи с заданной точностью. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & Количество знаков после запятой для вычисления Пи. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Вычисленное значение Пи в виде \doxylink{classBigFloat}{Big\+Float}. 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a5105e7cfddb19c06ac6d0d9a6b363764}\label{main_8cpp_a5105e7cfddb19c06ac6d0d9a6b363764} 
+\index{main.cpp@{main.cpp}!show@{show}}
+\index{show@{show}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{show()}{show()}}
+{\footnotesize\ttfamily void show (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Big\+Float}}}]{a,  }\item[{int}]{x }\end{DoxyParamCaption})}
+
+
+
+Вспомогательная функция для вывода \doxylink{classBigFloat}{Big\+Float} с заданной точностью. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & \doxylink{classBigFloat}{Big\+Float} для вывода. \\
+\hline
+{\em x} & Точность вывода. \\
+\hline
+\end{DoxyParams}

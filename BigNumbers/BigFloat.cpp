@@ -2,13 +2,24 @@
 #include "BigInteger.h"
 #include <iostream>
 #include <vector>
+#include <string>
 
 using SelfRefBigFloat = const BigFloat&;
 
+/**
+ * @brief Литерал оператор для создания BigFloat из строки.
+ * @param s Строка, представляющая число.
+ * @param size Размер строки.
+ * @return Новый BigFloat, созданный из строки.
+ */
 const BigFloat operator ""_bf(const char *s, size_t size) {
     return BigFloat(std::string(s, size));
 }
 
+/**
+ * @brief Конструктор BigFloat из BigInteger.
+ * @param num BigInteger для инициализации.
+ */
 BigFloat::BigFloat(const BigInteger &num) {
     for (int i = 0; i < num.number.size(); ++i) {
         numberF.number.push_back(num.number[i]);
@@ -17,6 +28,10 @@ BigFloat::BigFloat(const BigInteger &num) {
     index = 0;
 }
 
+/**
+ * @brief Конструктор BigFloat из строки.
+ * @param s Строка, представляющая число.
+ */
 BigFloat::BigFloat(std::string s) {
     if (s.size() == 1 && s[0] == '0') {
         BigFloat::numberF.sign = Sign::zero;
@@ -70,6 +85,9 @@ BigFloat::BigFloat(std::string s) {
     BigFloat::delete_leadings_zeroes();
 }
 
+/**
+ * @brief Удаляет ведущие нули из числа.
+ */
 void BigFloat::delete_leadings_zeroes() {
     if (numberF.sign == Sign::zero) {
         return;
@@ -86,6 +104,11 @@ void BigFloat::delete_leadings_zeroes() {
     }
 }
 
+/**
+ * @brief Преобразует BigFloat в строку.
+ * @param x Количество знаков после запятой.
+ * @return Строка, представляющая значение BigFloat.
+ */
 std::string BigFloat::toString(int x) const {
     if (numberF.sign == Sign::zero) {
         return "0";
@@ -120,6 +143,10 @@ std::string BigFloat::toString(int x) const {
     return output_string;
 }
 
+/**
+ * @brief Изменяет точность BigFloat.
+ * @param x Новая точность.
+ */
 void BigFloat::change_precision(int x) {
     if(index >= x){
         return;
@@ -132,6 +159,10 @@ void BigFloat::change_precision(int x) {
     }
 }
 
+/**
+ * @brief Унарный оператор минус.
+ * @return Новое значение BigFloat с противоположным знаком.
+ */
 const BigFloat BigFloat::operator-() const {
     BigFloat result = *this;
     if (result.numberF.sign == Sign::positive) {
@@ -142,6 +173,11 @@ const BigFloat BigFloat::operator-() const {
     return result;
 }
 
+/**
+ * @brief Определяет количество нулей в начале числа.
+ * @param x BigFloat для проверки.
+ * @return Количество нулей.
+ */
 int zeroes_of_head(SelfRefBigFloat x){
     int x_digits = x.numberF.number.size();
     for(int i = 0; i < x.index; i++){
@@ -154,6 +190,12 @@ int zeroes_of_head(SelfRefBigFloat x){
     return x_digits;
 };
 
+/**
+ * @brief Оператор сравнения на равенство.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return true, если равны, иначе false.
+ */
 bool operator==(SelfRefBigFloat first, SelfRefBigFloat second) {
     int first_digits = first.numberF.number.size();
     int size_first = zeroes_of_head(first);
@@ -171,6 +213,12 @@ bool operator==(SelfRefBigFloat first, SelfRefBigFloat second) {
     return true;
 }
 
+/**
+ * @brief Оператор сравнения на меньше.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return true, если первый меньше второго, иначе false.
+ */
 bool operator<(SelfRefBigFloat first, SelfRefBigFloat second) {
     if (first == second) {
         return false;
@@ -209,22 +257,51 @@ bool operator<(SelfRefBigFloat first, SelfRefBigFloat second) {
     return true;
 }
 
+/**
+ * @brief Оператор сравнения на неравенство.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return true, если не равны, иначе false.
+ */
 bool operator!=(SelfRefBigFloat first, SelfRefBigFloat second) {
     return !(first == second);
 }
 
+/**
+ * @brief Оператор сравнения на меньше или равно.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return true, если первый меньше или равен второму, иначе false.
+ */
 bool operator<=(SelfRefBigFloat first, SelfRefBigFloat second) {
     return !(second < first);
 }
 
+/**
+ * @brief Оператор сравнения на больше.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return true, если первый больше второго, иначе false.
+ */
 bool operator>(SelfRefBigFloat first, SelfRefBigFloat second) {
     return second < first;
 }
 
+/**
+ * @brief Оператор сравнения на больше или равно.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return true, если первый больше или равен второму, иначе false.
+ */
 bool operator>=(SelfRefBigFloat first, SelfRefBigFloat second) {
     return !(first < second);
 }
 
+/**
+ * @brief Оператор присваивания сложения.
+ * @param other BigFloat для сложения.
+ * @return Ссылка на этот BigFloat после сложения.
+ */
 BigFloat& BigFloat::operator+=(SelfRefBigFloat other) {
     BigFloat temp = other;
     if(temp.index > index){
@@ -237,6 +314,11 @@ BigFloat& BigFloat::operator+=(SelfRefBigFloat other) {
     return *this;
 }
 
+/**
+ * @brief Оператор присваивания вычитания.
+ * @param other BigFloat для вычитания.
+ * @return Ссылка на этот BigFloat после вычитания.
+ */
 BigFloat& BigFloat::operator-=(SelfRefBigFloat other) {
     BigFloat temp = other;
     if(temp.index > index){
@@ -249,6 +331,11 @@ BigFloat& BigFloat::operator-=(SelfRefBigFloat other) {
     return *this;
 }
 
+/**
+ * @brief Оператор присваивания умножения.
+ * @param other BigFloat для умножения.
+ * @return Ссылка на этот BigFloat после умножения.
+ */
 BigFloat& BigFloat::operator*=(SelfRefBigFloat other) {
     BigFloat temp = other;
     numberF *= temp.numberF;
@@ -260,6 +347,11 @@ BigFloat& BigFloat::operator*=(SelfRefBigFloat other) {
     return *this;
 }
 
+/**
+ * @brief Оператор присваивания деления.
+ * @param other BigFloat для деления.
+ * @return Ссылка на этот BigFloat после деления.
+ */
 BigFloat& BigFloat::operator/=(SelfRefBigFloat other){
     BigFloat temp = other;
     this ->change_precision(120);
@@ -273,6 +365,12 @@ BigFloat& BigFloat::operator/=(SelfRefBigFloat other){
     return *this;
 }
 
+/**
+ * @brief Оператор сложения.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return Результат сложения.
+ */
 const BigFloat operator+(SelfRefBigFloat first, SelfRefBigFloat second) {
     BigFloat sum = first;
     sum += second;
@@ -284,6 +382,12 @@ const BigFloat operator+(SelfRefBigFloat first, SelfRefBigFloat second) {
     return sum;
 }
 
+/**
+ * @brief Оператор вычитания.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return Результат вычитания.
+ */
 const BigFloat operator-(SelfRefBigFloat first, SelfRefBigFloat second) {
     BigFloat difference = first;
     difference -= second;
@@ -295,6 +399,12 @@ const BigFloat operator-(SelfRefBigFloat first, SelfRefBigFloat second) {
     return difference;
 }
 
+/**
+ * @brief Оператор умножения.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return Результат умножения.
+ */
 const BigFloat operator*(SelfRefBigFloat first, SelfRefBigFloat second) {
     BigFloat product = first;
     product *= second;
@@ -306,8 +416,15 @@ const BigFloat operator*(SelfRefBigFloat first, SelfRefBigFloat second) {
     return product;
 }
 
+/**
+ * @brief Оператор деления.
+ * @param first Первый BigFloat.
+ * @param second Второй BigFloat.
+ * @return Результат деления.
+ */
 const BigFloat operator/(SelfRefBigFloat first, SelfRefBigFloat second) {
     BigFloat quotient = first;
     quotient /= second;
     return quotient;
 }
+

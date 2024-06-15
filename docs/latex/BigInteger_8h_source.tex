@@ -1,0 +1,73 @@
+\doxysection{Big\+Integer.\+h}
+\hypertarget{BigInteger_8h_source}{}\label{BigInteger_8h_source}\index{BigNumbers/BigInteger.h@{BigNumbers/BigInteger.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LINUX\_TOP\_BIGINTEGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LINUX\_TOP\_BIGINTEGER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum\ class}\ Sign\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ negative,\ }
+\DoxyCodeLine{00013\ \ \ \ \ zero,\ }
+\DoxyCodeLine{00014\ \ \ \ \ positive\ }
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBigInteger}{BigInteger}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ =\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ \mbox{\hyperlink{classBigInteger_a25c0c2664be5543724dd21667dca9056}{operator-\/}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBigInteger_a2aa9f37826f0df36229031099d2017a5}{operator!=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}},\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}});}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBigInteger_a947b46b79a79ebf2c2b5403686864f45}{operator==}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}},\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}});}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBigInteger_a0793746f83b62e958a753bdf549e924a}{operator<}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}},\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}});}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBigInteger_a18d0bbbe8bdae5adc2b06094dd73ec23}{operator<=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}},\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}});}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBigInteger_a81a426fedeeb1636c69a648fa0c093c1}{operator>}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}},\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}});}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBigInteger_a8e63befcd1482ac68772cc86b72b21b3}{operator>=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}},\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}});}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_a34dd6d316e776ac39f515390abd9d5fa}{operator+=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_a203b2f07f8ce3d1c540ef560dbd74682}{operator-\/=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_aac54ae9ee280f39627dc787286c252ec}{operator*=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\&\ \mbox{\hyperlink{classBigInteger_a29791f82d6344c9bf6575fafdc4d950e}{operator/=}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ other);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ \mbox{\hyperlink{classBigInteger_a42714d721165d43f80db492d0f2ac267}{operator+}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ left,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ right);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ \mbox{\hyperlink{classBigInteger_a25c0c2664be5543724dd21667dca9056}{operator-\/}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ left,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ right);}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ \mbox{\hyperlink{classBigInteger_a004f4ab799a90b2fe27986c48d46b206}{operator*}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ left,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ right);}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ \mbox{\hyperlink{classBigInteger_a8639ec2481bdf15c271a8d7525782f52}{operator/}}(\mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ left,\ \mbox{\hyperlink{classBigInteger}{SelfRefBigInt}}\ right);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classBigInteger_a67a108dbe651911a21b3fc4310a505dd}{BigInteger}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\&\ other);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classBigInteger_a67a108dbe651911a21b3fc4310a505dd}{BigInteger}}(\textcolor{keyword}{const}\ std::string\ other);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{classBigInteger_a67a108dbe651911a21b3fc4310a505dd}{BigInteger}}()\ \{\}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classBigInteger_ab50c112e88245472199bc2cd2845c6d3}{\string~BigInteger}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ std::string\ \mbox{\hyperlink{classBigInteger_a486636afaaae308b598eca2df99971e0}{toString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ Sign\ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}};\ }
+\DoxyCodeLine{00100\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}};\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{classBigInteger}{BigInteger}}\ abs()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{const}\ Sign\&\ signum()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}{sign}};\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ digits()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}{number}};\ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_zeros();}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ shift();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ kDigit\_size\ =\ 9;\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ kSystem\ =\ 1000000000;\ }
+\DoxyCodeLine{00133\ \};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LINUX\_TOP\_BIGINTEGER\_H}}
+
+\end{DoxyCode}

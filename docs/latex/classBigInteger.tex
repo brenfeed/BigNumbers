@@ -1,0 +1,462 @@
+\doxysection{Big\+Integer Class Reference}
+\hypertarget{classBigInteger}{}\label{classBigInteger}\index{BigInteger@{BigInteger}}
+
+
+Класс для представления и манипулирования большими целыми числами.  
+
+
+
+
+{\ttfamily \#include $<$Big\+Integer.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBigInteger_aa18bf90b010799c27631617e4aa5f43c}\label{classBigInteger_aa18bf90b010799c27631617e4aa5f43c} 
+using {\bfseries Self\+Ref\+Big\+Int} = const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \&
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \mbox{\hyperlink{classBigInteger_a25c0c2664be5543724dd21667dca9056}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Унарный оператор минус. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& \mbox{\hyperlink{classBigInteger_a34dd6d316e776ac39f515390abd9d5fa}{operator+=}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания сложения. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& \mbox{\hyperlink{classBigInteger_a203b2f07f8ce3d1c540ef560dbd74682}{operator-\/=}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания вычитания. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& \mbox{\hyperlink{classBigInteger_aac54ae9ee280f39627dc787286c252ec}{operator\texorpdfstring{$\ast$}{*}=}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания умножения. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& \mbox{\hyperlink{classBigInteger_a29791f82d6344c9bf6575fafdc4d950e}{operator/=}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания деления. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigInteger_a9e98e0dab51b3016d5652fb0362037fa}{Big\+Integer}} (const long long \&other)
+\begin{DoxyCompactList}\small\item\em Конструктор \doxylink{classBigInteger}{Big\+Integer} из целого числа. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigInteger_a3a68a0b76f7095a1db57b5d16f1e57d0}{Big\+Integer}} (const std\+::string other)
+\begin{DoxyCompactList}\small\item\em Конструктор \doxylink{classBigInteger}{Big\+Integer} из строки. \end{DoxyCompactList}\item 
+\Hypertarget{classBigInteger_a67a108dbe651911a21b3fc4310a505dd}\label{classBigInteger_a67a108dbe651911a21b3fc4310a505dd} 
+{\bfseries Big\+Integer} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\Hypertarget{classBigInteger_ab50c112e88245472199bc2cd2845c6d3}\label{classBigInteger_ab50c112e88245472199bc2cd2845c6d3} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Big\+Integer} ()=default
+\begin{DoxyCompactList}\small\item\em Деструктор по умолчанию. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classBigInteger_a486636afaaae308b598eca2df99971e0}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Преобразует \doxylink{classBigInteger}{Big\+Integer} в строковое представление. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6}\label{classBigInteger_a7504893ed5d8928d99c03e92c0727ed6} 
+Sign {\bfseries sign}
+\begin{DoxyCompactList}\small\item\em Знак числа. \end{DoxyCompactList}\item 
+\Hypertarget{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617}\label{classBigInteger_a8277d7bda4eef7b104b5fe42f5b18617} 
+std\+::vector$<$ int $>$ {\bfseries number}
+\begin{DoxyCompactList}\small\item\em Вектор для хранения цифр числа. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classBigInteger_a2aa9f37826f0df36229031099d2017a5}{operator!=}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на неравенство. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigInteger_a947b46b79a79ebf2c2b5403686864f45}{operator==}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на равенство. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigInteger_a0793746f83b62e958a753bdf549e924a}{operator$<$}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на меньше. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigInteger_a18d0bbbe8bdae5adc2b06094dd73ec23}{operator$<$=}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на меньше или равно. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigInteger_a81a426fedeeb1636c69a648fa0c093c1}{operator$>$}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на больше. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigInteger_a8e63befcd1482ac68772cc86b72b21b3}{operator$>$=}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на больше или равно. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \mbox{\hyperlink{classBigInteger_a42714d721165d43f80db492d0f2ac267}{operator+}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} left, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} right)
+\begin{DoxyCompactList}\small\item\em Оператор сложения. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \mbox{\hyperlink{classBigInteger_a22424431b7e3f0e96fe563789116b936}{operator-\/}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} left, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} right)
+\begin{DoxyCompactList}\small\item\em Оператор вычитания. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \mbox{\hyperlink{classBigInteger_a004f4ab799a90b2fe27986c48d46b206}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} left, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} right)
+\begin{DoxyCompactList}\small\item\em Оператор умножения. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \mbox{\hyperlink{classBigInteger_a8639ec2481bdf15c271a8d7525782f52}{operator/}} (\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} left, \mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}} right)
+\begin{DoxyCompactList}\small\item\em Оператор деления. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс для представления и манипулирования большими целыми числами. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBigInteger_a9e98e0dab51b3016d5652fb0362037fa}\label{classBigInteger_a9e98e0dab51b3016d5652fb0362037fa} 
+\index{BigInteger@{BigInteger}!BigInteger@{BigInteger}}
+\index{BigInteger@{BigInteger}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{BigInteger()}{BigInteger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Big\+Integer\+::\+Big\+Integer (\begin{DoxyParamCaption}\item[{const long long \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Конструктор \doxylink{classBigInteger}{Big\+Integer} из целого числа. 
+
+Конструктор \doxylink{classBigInteger}{Big\+Integer} из long long.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Целое число для инициализации.\\
+\hline
+{\em other} & Значение long long для инициализации. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBigInteger_a3a68a0b76f7095a1db57b5d16f1e57d0}\label{classBigInteger_a3a68a0b76f7095a1db57b5d16f1e57d0} 
+\index{BigInteger@{BigInteger}!BigInteger@{BigInteger}}
+\index{BigInteger@{BigInteger}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{BigInteger()}{BigInteger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Big\+Integer\+::\+Big\+Integer (\begin{DoxyParamCaption}\item[{const std\+::string}]{other }\end{DoxyParamCaption})}
+
+
+
+Конструктор \doxylink{classBigInteger}{Big\+Integer} из строки. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Строка, представляющая целое число. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBigInteger_aac54ae9ee280f39627dc787286c252ec}\label{classBigInteger_aac54ae9ee280f39627dc787286c252ec} 
+\index{BigInteger@{BigInteger}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& Big\+Integer\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания умножения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigInteger}{Big\+Integer} для умножения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigInteger}{Big\+Integer} после умножения.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Другой \doxylink{classBigInteger}{Big\+Integer} для умножения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigInteger}{Big\+Integer} после умножения. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a34dd6d316e776ac39f515390abd9d5fa}\label{classBigInteger_a34dd6d316e776ac39f515390abd9d5fa} 
+\index{BigInteger@{BigInteger}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& Big\+Integer\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания сложения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigInteger}{Big\+Integer} для сложения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigInteger}{Big\+Integer} после сложения.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Другой \doxylink{classBigInteger}{Big\+Integer} для сложения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigInteger}{Big\+Integer} после сложения. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a25c0c2664be5543724dd21667dca9056}\label{classBigInteger_a25c0c2664be5543724dd21667dca9056} 
+\index{BigInteger@{BigInteger}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} Big\+Integer\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Унарный оператор минус. 
+
+\begin{DoxyReturn}{Returns}
+Новый \doxylink{classBigInteger}{Big\+Integer} с противоположным знаком.
+
+Новое значение \doxylink{classBigInteger}{Big\+Integer} с противоположным знаком. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a203b2f07f8ce3d1c540ef560dbd74682}\label{classBigInteger_a203b2f07f8ce3d1c540ef560dbd74682} 
+\index{BigInteger@{BigInteger}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& Big\+Integer\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания вычитания. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigInteger}{Big\+Integer} для вычитания. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigInteger}{Big\+Integer} после вычитания.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Другой \doxylink{classBigInteger}{Big\+Integer} для вычитания. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigInteger}{Big\+Integer} после вычитания. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a29791f82d6344c9bf6575fafdc4d950e}\label{classBigInteger_a29791f82d6344c9bf6575fafdc4d950e} 
+\index{BigInteger@{BigInteger}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \& Big\+Integer\+::operator/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания деления. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigInteger}{Big\+Integer} для деления. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigInteger}{Big\+Integer} после деления.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Другой \doxylink{classBigInteger}{Big\+Integer} для деления. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigInteger}{Big\+Integer} после деления. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a486636afaaae308b598eca2df99971e0}\label{classBigInteger_a486636afaaae308b598eca2df99971e0} 
+\index{BigInteger@{BigInteger}!toString@{toString}}
+\index{toString@{toString}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Big\+Integer\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Преобразует \doxylink{classBigInteger}{Big\+Integer} в строковое представление. 
+
+Преобразование \doxylink{classBigInteger}{Big\+Integer} в строку.
+
+\begin{DoxyReturn}{Returns}
+Строка, представляющая \doxylink{classBigInteger}{Big\+Integer}.
+
+Строка, представляющая значение \doxylink{classBigInteger}{Big\+Integer}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classBigInteger_a2aa9f37826f0df36229031099d2017a5}\label{classBigInteger_a2aa9f37826f0df36229031099d2017a5} 
+\index{BigInteger@{BigInteger}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{first,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на неравенство. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если не равны, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a004f4ab799a90b2fe27986c48d46b206}\label{classBigInteger_a004f4ab799a90b2fe27986c48d46b206} 
+\index{BigInteger@{BigInteger}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{left,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор умножения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат умножения. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a42714d721165d43f80db492d0f2ac267}\label{classBigInteger_a42714d721165d43f80db492d0f2ac267} 
+\index{BigInteger@{BigInteger}!operator+@{operator+}}
+\index{operator+@{operator+}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{left,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сложения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат сложения. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a22424431b7e3f0e96fe563789116b936}\label{classBigInteger_a22424431b7e3f0e96fe563789116b936} 
+\index{BigInteger@{BigInteger}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{left,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор вычитания. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат вычитания. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a8639ec2481bdf15c271a8d7525782f52}\label{classBigInteger_a8639ec2481bdf15c271a8d7525782f52} 
+\index{BigInteger@{BigInteger}!operator/@{operator/}}
+\index{operator/@{operator/}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} operator/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{left,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор деления. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат деления. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a0793746f83b62e958a753bdf549e924a}\label{classBigInteger_a0793746f83b62e958a753bdf549e924a} 
+\index{BigInteger@{BigInteger}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{first,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на меньше. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый меньше второго, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a18d0bbbe8bdae5adc2b06094dd73ec23}\label{classBigInteger_a18d0bbbe8bdae5adc2b06094dd73ec23} 
+\index{BigInteger@{BigInteger}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator$<$=}{operator<=}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{first,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на меньше или равно. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый меньше или равен второму, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a947b46b79a79ebf2c2b5403686864f45}\label{classBigInteger_a947b46b79a79ebf2c2b5403686864f45} 
+\index{BigInteger@{BigInteger}!operator==@{operator==}}
+\index{operator==@{operator==}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{first,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на равенство. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если равны, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a81a426fedeeb1636c69a648fa0c093c1}\label{classBigInteger_a81a426fedeeb1636c69a648fa0c093c1} 
+\index{BigInteger@{BigInteger}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator$>$}{operator>}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{first,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на больше. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый больше второго, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigInteger_a8e63befcd1482ac68772cc86b72b21b3}\label{classBigInteger_a8e63befcd1482ac68772cc86b72b21b3} 
+\index{BigInteger@{BigInteger}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!BigInteger@{BigInteger}}
+\doxysubsubsection{\texorpdfstring{operator$>$=}{operator>=}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{first,  }\item[{\mbox{\hyperlink{classBigInteger}{Self\+Ref\+Big\+Int}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на больше или равно. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+{\em second} & Второй \doxylink{classBigInteger}{Big\+Integer}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый больше или равен второму, иначе false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Big\+Numbers/Big\+Integer.\+h\item 
+Big\+Numbers/Big\+Integer.\+cpp\end{DoxyCompactItemize}
