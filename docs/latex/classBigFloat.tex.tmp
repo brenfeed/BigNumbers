@@ -1,0 +1,475 @@
+\doxysection{Big\+Float Class Reference}
+\hypertarget{classBigFloat}{}\label{classBigFloat}\index{BigFloat@{BigFloat}}
+
+
+Класс для представления и манипулирования большими числами с плавающей запятой.  
+
+
+
+
+{\ttfamily \#include $<$Big\+Float.\+h$>$}
+
+
+
+Collaboration diagram for Big\+Float\+:
+% FIG 0
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBigFloat_abae25eeec5e31d24b017bfcf4290472b}\label{classBigFloat_abae25eeec5e31d24b017bfcf4290472b} 
+using {\bfseries Self\+Ref\+Big\+Float} = const \mbox{\hyperlink{classBigFloat}{Big\+Float}} \&
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classBigFloat}{Big\+Float}} \mbox{\hyperlink{classBigFloat_aa1f7b63b77cd3db8131f977eeaa4cb05}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Унарный оператор минус. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigFloat}{Big\+Float}} \& \mbox{\hyperlink{classBigFloat_a21d8c6ec4306b10014d07813575e51a3}{operator+=}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания сложения. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigFloat}{Big\+Float}} \& \mbox{\hyperlink{classBigFloat_a3b8dc595dbc7c807b30c0dc1e7c8a617}{operator-\/=}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания вычитания. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigFloat}{Big\+Float}} \& \mbox{\hyperlink{classBigFloat_ab574a4d90f1345696ce4c32d3a8ff555}{operator\texorpdfstring{$\ast$}{*}=}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания умножения. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigFloat}{Big\+Float}} \& \mbox{\hyperlink{classBigFloat_a4036d59de99c72a1f3757b849dd089e0}{operator/=}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} other)
+\begin{DoxyCompactList}\small\item\em Оператор присваивания деления. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigFloat_a9d54a545fb09f4c61e9a301b1ab6933a}{Big\+Float}} (const std\+::string other)
+\begin{DoxyCompactList}\small\item\em Конструктор \doxylink{classBigFloat}{Big\+Float} из строки. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBigFloat_a76c8720853b0accce199640a01b97e93}{Big\+Float}} (const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \&num)
+\begin{DoxyCompactList}\small\item\em Конструктор \doxylink{classBigFloat}{Big\+Float} из \doxylink{classBigInteger}{Big\+Integer}. \end{DoxyCompactList}\item 
+\Hypertarget{classBigFloat_a6df52500e85297164050be2d3c8092c6}\label{classBigFloat_a6df52500e85297164050be2d3c8092c6} 
+{\bfseries Big\+Float} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию. \end{DoxyCompactList}\item 
+\Hypertarget{classBigFloat_a2f0c0d83da5dd758e386bc2f420a2062}\label{classBigFloat_a2f0c0d83da5dd758e386bc2f420a2062} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Big\+Float} ()=default
+\begin{DoxyCompactList}\small\item\em Деструктор по умолчанию. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classBigFloat_af0e1cb067ab0aea94899b134823643f3}{to\+String}} (int x) const
+\begin{DoxyCompactList}\small\item\em Преобразует \doxylink{classBigFloat}{Big\+Float} в строковое представление. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBigFloat_a18af4f9908e6043e23be1f0680d93439}\label{classBigFloat_a18af4f9908e6043e23be1f0680d93439} 
+\mbox{\hyperlink{classBigInteger}{Big\+Integer}} {\bfseries numberF}
+\begin{DoxyCompactList}\small\item\em Основное целочисленное представление. \end{DoxyCompactList}\item 
+\Hypertarget{classBigFloat_a6488e6ac55963d6c5099c38e4149bf24}\label{classBigFloat_a6488e6ac55963d6c5099c38e4149bf24} 
+int {\bfseries index}
+\begin{DoxyCompactList}\small\item\em Позиция десятичной точки. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classBigFloat_ad0a9e6027c88550d08d0e1e192ba866b}{operator!=}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на неравенство. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigFloat_a6c56b658e62b4ad9c6137becc3e5c49a}{operator==}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на равенство. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigFloat_a2d7aea32c9b7c285d906ba5bc3d1266f}{operator$<$}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на меньше. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigFloat_a04b8686080d56c341a0794a40b180f91}{operator$<$=}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на меньше или равно. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigFloat_aebc0578b5e263da330820bf78cf9b76e}{operator$>$}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на больше. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBigFloat_ad06acb32b92cb08a9d3084fbcc76fc77}{operator$>$=}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}})
+\begin{DoxyCompactList}\small\item\em Оператор сравнения на больше или равно. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigFloat}{Big\+Float}} \mbox{\hyperlink{classBigFloat_a55701f224f848363d544bae8af6a0d46}{operator+}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} left, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} right)
+\begin{DoxyCompactList}\small\item\em Оператор сложения. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigFloat}{Big\+Float}} \mbox{\hyperlink{classBigFloat_a16d4f538ec0f940ae6005ee198e61a2a}{operator-\/}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} left, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} right)
+\begin{DoxyCompactList}\small\item\em Оператор вычитания. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigFloat}{Big\+Float}} \mbox{\hyperlink{classBigFloat_ad0b7e44729145ba769332395b6038c82}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} left, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} right)
+\begin{DoxyCompactList}\small\item\em Оператор умножения. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classBigFloat}{Big\+Float}} \mbox{\hyperlink{classBigFloat_a7f8c8be06efeb6ba613acc8b59ea56c8}{operator/}} (\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} left, \mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}} right)
+\begin{DoxyCompactList}\small\item\em Оператор деления. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Класс для представления и манипулирования большими числами с плавающей запятой. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classBigFloat_a9d54a545fb09f4c61e9a301b1ab6933a}\label{classBigFloat_a9d54a545fb09f4c61e9a301b1ab6933a} 
+\index{BigFloat@{BigFloat}!BigFloat@{BigFloat}}
+\index{BigFloat@{BigFloat}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{BigFloat()}{BigFloat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Big\+Float\+::\+Big\+Float (\begin{DoxyParamCaption}\item[{const std\+::string}]{other }\end{DoxyParamCaption})}
+
+
+
+Конструктор \doxylink{classBigFloat}{Big\+Float} из строки. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Строка, представляющая число.\\
+\hline
+{\em s} & Строка, представляющая число. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBigFloat_a76c8720853b0accce199640a01b97e93}\label{classBigFloat_a76c8720853b0accce199640a01b97e93} 
+\index{BigFloat@{BigFloat}!BigFloat@{BigFloat}}
+\index{BigFloat@{BigFloat}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{BigFloat()}{BigFloat()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Big\+Float\+::\+Big\+Float (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classBigInteger}{Big\+Integer}} \&}]{num }\end{DoxyParamCaption})}
+
+
+
+Конструктор \doxylink{classBigFloat}{Big\+Float} из \doxylink{classBigInteger}{Big\+Integer}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & \doxylink{classBigInteger}{Big\+Integer} для инициализации. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBigFloat_ab574a4d90f1345696ce4c32d3a8ff555}\label{classBigFloat_ab574a4d90f1345696ce4c32d3a8ff555} 
+\index{BigFloat@{BigFloat}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigFloat}{Big\+Float}} \& Big\+Float\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания умножения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для умножения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigFloat}{Big\+Float} после умножения.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для умножения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigFloat}{Big\+Float} после умножения. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a21d8c6ec4306b10014d07813575e51a3}\label{classBigFloat_a21d8c6ec4306b10014d07813575e51a3} 
+\index{BigFloat@{BigFloat}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigFloat}{Big\+Float}} \& Big\+Float\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания сложения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для сложения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigFloat}{Big\+Float} после сложения.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для сложения. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigFloat}{Big\+Float} после сложения. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_aa1f7b63b77cd3db8131f977eeaa4cb05}\label{classBigFloat_aa1f7b63b77cd3db8131f977eeaa4cb05} 
+\index{BigFloat@{BigFloat}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigFloat}{Big\+Float}} Big\+Float\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Унарный оператор минус. 
+
+\begin{DoxyReturn}{Returns}
+Новый \doxylink{classBigFloat}{Big\+Float} с противоположным знаком.
+
+Новое значение \doxylink{classBigFloat}{Big\+Float} с противоположным знаком. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a3b8dc595dbc7c807b30c0dc1e7c8a617}\label{classBigFloat_a3b8dc595dbc7c807b30c0dc1e7c8a617} 
+\index{BigFloat@{BigFloat}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigFloat}{Big\+Float}} \& Big\+Float\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания вычитания. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для вычитания. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigFloat}{Big\+Float} после вычитания.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для вычитания. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigFloat}{Big\+Float} после вычитания. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a4036d59de99c72a1f3757b849dd089e0}\label{classBigFloat_a4036d59de99c72a1f3757b849dd089e0} 
+\index{BigFloat@{BigFloat}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBigFloat}{Big\+Float}} \& Big\+Float\+::operator/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{other }\end{DoxyParamCaption})}
+
+
+
+Оператор присваивания деления. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для деления. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на текущий \doxylink{classBigFloat}{Big\+Float} после деления.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \doxylink{classBigFloat}{Big\+Float} для деления. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ссылка на этот \doxylink{classBigFloat}{Big\+Float} после деления. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_af0e1cb067ab0aea94899b134823643f3}\label{classBigFloat_af0e1cb067ab0aea94899b134823643f3} 
+\index{BigFloat@{BigFloat}!toString@{toString}}
+\index{toString@{toString}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Big\+Float\+::to\+String (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption}) const}
+
+
+
+Преобразует \doxylink{classBigFloat}{Big\+Float} в строковое представление. 
+
+Преобразует \doxylink{classBigFloat}{Big\+Float} в строку.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Количество знаков после запятой. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Строка, представляющая \doxylink{classBigFloat}{Big\+Float}.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Количество знаков после запятой. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Строка, представляющая значение \doxylink{classBigFloat}{Big\+Float}. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classBigFloat_ad0a9e6027c88550d08d0e1e192ba866b}\label{classBigFloat_ad0a9e6027c88550d08d0e1e192ba866b} 
+\index{BigFloat@{BigFloat}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily bool operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{first,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на неравенство. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если не равны, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_ad0b7e44729145ba769332395b6038c82}\label{classBigFloat_ad0b7e44729145ba769332395b6038c82} 
+\index{BigFloat@{BigFloat}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigFloat}{Big\+Float}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{left,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор умножения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат умножения. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a55701f224f848363d544bae8af6a0d46}\label{classBigFloat_a55701f224f848363d544bae8af6a0d46} 
+\index{BigFloat@{BigFloat}!operator+@{operator+}}
+\index{operator+@{operator+}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigFloat}{Big\+Float}} operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{left,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сложения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат сложения. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a16d4f538ec0f940ae6005ee198e61a2a}\label{classBigFloat_a16d4f538ec0f940ae6005ee198e61a2a} 
+\index{BigFloat@{BigFloat}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigFloat}{Big\+Float}} operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{left,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор вычитания. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат вычитания. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a7f8c8be06efeb6ba613acc8b59ea56c8}\label{classBigFloat_a7f8c8be06efeb6ba613acc8b59ea56c8} 
+\index{BigFloat@{BigFloat}!operator/@{operator/}}
+\index{operator/@{operator/}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classBigFloat}{Big\+Float}} operator/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{left,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор деления. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Результат деления. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a2d7aea32c9b7c285d906ba5bc3d1266f}\label{classBigFloat_a2d7aea32c9b7c285d906ba5bc3d1266f} 
+\index{BigFloat@{BigFloat}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{first,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на меньше. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый меньше второго, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a04b8686080d56c341a0794a40b180f91}\label{classBigFloat_a04b8686080d56c341a0794a40b180f91} 
+\index{BigFloat@{BigFloat}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator$<$=}{operator<=}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{first,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на меньше или равно. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый меньше или равен второму, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_a6c56b658e62b4ad9c6137becc3e5c49a}\label{classBigFloat_a6c56b658e62b4ad9c6137becc3e5c49a} 
+\index{BigFloat@{BigFloat}!operator==@{operator==}}
+\index{operator==@{operator==}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{first,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на равенство. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если равны, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_aebc0578b5e263da330820bf78cf9b76e}\label{classBigFloat_aebc0578b5e263da330820bf78cf9b76e} 
+\index{BigFloat@{BigFloat}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator$>$}{operator>}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{first,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на больше. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый больше второго, иначе false. 
+\end{DoxyReturn}
+\Hypertarget{classBigFloat_ad06acb32b92cb08a9d3084fbcc76fc77}\label{classBigFloat_ad06acb32b92cb08a9d3084fbcc76fc77} 
+\index{BigFloat@{BigFloat}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!BigFloat@{BigFloat}}
+\doxysubsubsection{\texorpdfstring{operator$>$=}{operator>=}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{first,  }\item[{\mbox{\hyperlink{classBigFloat}{Self\+Ref\+Big\+Float}}}]{second }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Оператор сравнения на больше или равно. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em first} & Первый \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+{\em second} & Второй \doxylink{classBigFloat}{Big\+Float}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, если первый больше или равен второму, иначе false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Big\+Numbers/Big\+Float.\+h\item 
+Big\+Numbers/Big\+Float.\+cpp\end{DoxyCompactItemize}

@@ -1,7 +1,11 @@
 #include "BigInteger.h"
-
+#include <string>
 using SelfRefBigInt = const BigInteger&;
 
+/**
+ * @brief Конструктор BigInteger из long long.
+ * @param other Значение long long для инициализации.
+ */
 BigInteger::BigInteger(const long long& other) {
     if (other < 0) {
         sign = Sign::negative;
@@ -17,6 +21,10 @@ BigInteger::BigInteger(const long long& other) {
     }
 }
 
+/**
+ * @brief Конструктор BigInteger из строки.
+ * @param other Строка, представляющая целое число.
+ */
 BigInteger::BigInteger(const std::string other) {
     if (other.size() == 1 && other[0] == '0') {
         BigInteger::sign = Sign::zero;
@@ -51,6 +59,10 @@ BigInteger::BigInteger(const std::string other) {
     }
 }
 
+/**
+ * @brief Унарный оператор минус.
+ * @return Новое значение BigInteger с противоположным знаком.
+ */
 const BigInteger BigInteger::operator-() const {
     BigInteger result = *this;
     if (result.sign == Sign::positive) {
@@ -61,6 +73,10 @@ const BigInteger BigInteger::operator-() const {
     return result;
 }
 
+/**
+ * @brief Преобразование BigInteger в строку.
+ * @return Строка, представляющая значение BigInteger.
+ */
 std::string BigInteger::toString() const {
     if (sign == Sign::zero) {
         return "0";
@@ -80,6 +96,12 @@ std::string BigInteger::toString() const {
     return output_string;
 }
 
+/**
+ * @brief Оператор сравнения на равенство.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return true, если равны, иначе false.
+ */
 bool operator==(SelfRefBigInt first, SelfRefBigInt second) {
     if (first.signum() != second.signum() || first.digits().size() != second.digits().size()) {
         return false;
@@ -92,6 +114,12 @@ bool operator==(SelfRefBigInt first, SelfRefBigInt second) {
     return true;
 }
 
+/**
+ * @brief Оператор сравнения на меньше.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return true, если первый меньше второго, иначе false.
+ */
 bool operator<(SelfRefBigInt first, SelfRefBigInt second) {
     if (first == second) {
         return false;
@@ -116,22 +144,50 @@ bool operator<(SelfRefBigInt first, SelfRefBigInt second) {
     return true;
 }
 
+/**
+ * @brief Оператор сравнения на неравенство.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return true, если не равны, иначе false.
+ */
 bool operator!=(SelfRefBigInt first, SelfRefBigInt second) {
     return !(first == second);
 }
 
+/**
+ * @brief Оператор сравнения на меньше или равно.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return true, если первый меньше или равен второму, иначе false.
+ */
 bool operator<=(SelfRefBigInt first, SelfRefBigInt second) {
     return !(second < first);
 }
 
+/**
+ * @brief Оператор сравнения на больше.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return true, если первый больше второго, иначе false.
+ */
 bool operator>(SelfRefBigInt first, SelfRefBigInt second) {
     return second < first;
 }
 
+/**
+ * @brief Оператор сравнения на больше или равно.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return true, если первый больше или равен второму, иначе false.
+ */
 bool operator>=(SelfRefBigInt first, SelfRefBigInt second) {
     return !(first < second);
 }
 
+/**
+ * @brief Получение абсолютного значения BigInteger.
+ * @return Новый BigInteger с положительным знаком.
+ */
 BigInteger BigInteger::abs() const {
     BigInteger copy = *this;
     if (copy.sign == Sign::negative) {
@@ -140,6 +196,9 @@ BigInteger BigInteger::abs() const {
     return copy;
 }
 
+/**
+ * @brief Удаление ведущих нулей из BigInteger.
+ */
 void BigInteger::remove_zeros() {
     while (!number.empty() && number.back() == 0) {
         number.pop_back();
@@ -148,6 +207,9 @@ void BigInteger::remove_zeros() {
     }
 }
 
+/**
+ * @brief Сдвиг цифр BigInteger на одну позицию влево.
+ */
 void BigInteger::shift() {
     if (number.empty()) {
         number.push_back(0);
@@ -160,6 +222,11 @@ void BigInteger::shift() {
     number[0] = 0;
 }
 
+/**
+ * @brief Оператор присваивания сложения.
+ * @param other Другой BigInteger для сложения.
+ * @return Ссылка на этот BigInteger после сложения.
+ */
 BigInteger& BigInteger::operator+=(SelfRefBigInt other) {
     if (sign == Sign::zero) {
         *this = other;
@@ -195,6 +262,11 @@ BigInteger& BigInteger::operator+=(SelfRefBigInt other) {
     return *this;
 }
 
+/**
+ * @brief Оператор присваивания вычитания.
+ * @param other Другой BigInteger для вычитания.
+ * @return Ссылка на этот BigInteger после вычитания.
+ */
 BigInteger& BigInteger::operator-=(SelfRefBigInt other) {
     if (sign == Sign::zero) {
         *this = -other;
@@ -236,6 +308,11 @@ BigInteger& BigInteger::operator-=(SelfRefBigInt other) {
     return *this;
 }
 
+/**
+ * @brief Оператор присваивания умножения.
+ * @param other Другой BigInteger для умножения.
+ * @return Ссылка на этот BigInteger после умножения.
+ */
 BigInteger& BigInteger::operator*=(SelfRefBigInt other) {
     BigInteger product;
     if (sign == Sign::zero || other.sign == Sign::zero) {
@@ -265,6 +342,11 @@ BigInteger& BigInteger::operator*=(SelfRefBigInt other) {
     return *this;
 }
 
+/**
+ * @brief Оператор присваивания деления.
+ * @param other Другой BigInteger для деления.
+ * @return Ссылка на этот BigInteger после деления.
+ */
 BigInteger& BigInteger::operator/=(SelfRefBigInt other) {
     if (other.sign == Sign::zero){
         std::cout << "lol" << std::endl;
@@ -310,26 +392,51 @@ BigInteger& BigInteger::operator/=(SelfRefBigInt other) {
     return *this;
 }
 
+/**
+ * @brief Оператор сложения.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return Результат сложения.
+ */
 const BigInteger operator+(SelfRefBigInt first, SelfRefBigInt second) {
     BigInteger sum = first;
     sum += second;
     return sum;
 }
 
+/**
+ * @brief Оператор вычитания.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return Результат вычитания.
+ */
 const BigInteger operator-(SelfRefBigInt first, SelfRefBigInt second) {
     BigInteger difference = first;
     difference -= second;
     return difference;
 }
 
+/**
+ * @brief Оператор умножения.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return Результат умножения.
+ */
 const BigInteger operator*(SelfRefBigInt first, SelfRefBigInt second) {
     BigInteger product = first;
     product *= second;
     return product;
 }
 
+/**
+ * @brief Оператор деления.
+ * @param first Первый BigInteger.
+ * @param second Второй BigInteger.
+ * @return Результат деления.
+ */
 const BigInteger operator/(SelfRefBigInt first, SelfRefBigInt second) {
     BigInteger quotient = first;
     quotient /= second;
     return quotient;
 }
+

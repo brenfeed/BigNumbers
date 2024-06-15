@@ -1,3 +1,7 @@
+/**
+ * @file main.cpp
+ * @brief Главный файл для демонстрации использования BigFloat и BigInteger.
+ */
 #include "BigNumbers/BigFloat.h"
 #include "BigNumbers/BigFloat.cpp"
 #include "BigNumbers/BigInteger.h"
@@ -5,6 +9,10 @@
 #include <iostream>
 #include <chrono>
 
+/**
+ * @brief Вспомогательная функция для вывода BigInteger.
+ * @param a BigInteger для вывода.
+ */
 #define all(x) x.begin(), x.end()
 void show(BigInteger a) {
     std::string temp;
@@ -12,12 +20,22 @@ void show(BigInteger a) {
     std::cout << temp << std::endl;
 }
 
+/**
+ * @brief Вспомогательная функция для вывода BigFloat с заданной точностью.
+ * @param a BigFloat для вывода.
+ * @param x Точность вывода.
+ */
 void show(BigFloat a, int x) {
     std::string temp;
     temp = a.toString(x);
     std::cout << temp << std::endl;
 }
 
+/**
+ * @brief Вычисляет значение числа Пи с заданной точностью.
+ * @param idx Количество знаков после запятой для вычисления Пи.
+ * @return Вычисленное значение Пи в виде BigFloat.
+ */
 BigFloat calculate_pi(int idx) {
     clock_t start, finish;
     start = clock();
@@ -47,6 +65,10 @@ BigFloat calculate_pi(int idx) {
     std::cout<<duration<<std::endl;
     return Pi;
 }
+
+/**
+ * @brief Главная функция для демонстрации функциональности BigFloat и BigInteger.
+ */
 int main(){
    // BigFloat r1("1");
    // BigFloat r2("1");
